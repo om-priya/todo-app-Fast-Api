@@ -1,0 +1,49 @@
+{% include 'layout.html' %}
+<!-- Card Element for the todo's-->
+
+<div
+  class="mt-8 min-w-full flex flex-col items-center justify-evenly gap-3 border-2"
+>
+  <div class="text-2xl font-bold">To Do's</div>
+  <div class="text-xl font-semibold">This is a full stack app for Fast Api</div>
+  <div>
+    <table class="table-auto border-seperate">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for todo in todos %}
+        <tr>
+          <td>{{ todo[1] }}</td>
+          <td>{{ todo[4] }}</td>
+          <td>{{ todo[2] }}</td>
+          <td>
+            <button class="border-2 p-1 bg-green-600 hover:text-white">
+              Complete
+            </button>
+            <button
+              onclick="window.location.href='edit-todo/{{ todo[0] }}'"
+              class="border-2 p-1 bg-purple-600 hover:text-white"
+            >
+              Edit ToDo
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button
+      onclick="window.location.href='/add-todo/'"
+      class="p-2 border-2 bg-indigo-600 font-bold text-white hover:scale-105"
+    >
+      Add a new Todo!
+    </button>
+  </div>
+</div>
